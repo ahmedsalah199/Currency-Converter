@@ -1,4 +1,5 @@
 import 'package:currency_converter/core/utils/app_constants.dart';
+import 'package:currency_converter/core/utils/app_strings.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
@@ -9,6 +10,7 @@ class DioHelper implements ApiConsumer {
   DioHelper({required this.dio}) {
     dio.options
       ..baseUrl = AppConstants.baseUrl
+      ..headers = {AppStrings.apikey : AppConstants.apikey}
       ..responseType = ResponseType.json
       ..contentType = AppConstants.applicationJson
       ..receiveDataWhenStatusError = true;
