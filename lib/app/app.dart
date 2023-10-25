@@ -2,7 +2,6 @@ import 'package:currency_converter/app/injection.dart' as di;
 import 'package:currency_converter/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../config/theme_app.dart';
 import '../core/utils/app_strings.dart';
@@ -32,19 +31,12 @@ class _MyAppState extends State<MyApp> {
           create: (context) => CubitBottomNav(),
         ),
       ],
-      child: ScreenUtilInit(
-        designSize: const Size(360, 690),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        builder: (BuildContext context, Widget? child) {
-          return MaterialApp(
+      child: MaterialApp(
             debugShowCheckedModeBanner: false,
             title: AppStrings.appName,
             theme: appTheme(),
             home: const HomeScreen(),
-          );
-        },
-      ),
+          ),
     );
   }
 }
